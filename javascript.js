@@ -15,7 +15,6 @@ searchBtn.addEventListener('click', () => {
 
 async function fetchWeather(city) {
     try {
-        // First, we need to get the latitude and longitude for the city
         const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`);
         if (!geoResponse.ok) {
             throw new Error(`HTTP error! status: ${geoResponse.status}`);
@@ -24,7 +23,6 @@ async function fetchWeather(city) {
         if (geoData.results && geoData.results.length > 0) {
             const { latitude, longitude, name, country } = geoData.results[0];
             
-            // Now fetch the weather data using the coordinates
             const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=auto`);
             if (!weatherResponse.ok) {
                 throw new Error(`HTTP error! status: ${weatherResponse.status}`);
@@ -80,13 +78,13 @@ function displayForecast(data) {
         `;
     }
     
-    forecastHTML += '</div>'; // Close the forecast-container div
+    forecastHTML += '</div>';
     
     forecast.innerHTML = forecastHTML;
 }
 
 function getWeatherDescription(code) {
-    // This is a simplified version. You might want to expand this for more detailed descriptions.
+    
     if (code <= 3) return "Clear or partly cloudy";
     if (code <= 49) return "Foggy";
     if (code <= 59) return "Drizzle";

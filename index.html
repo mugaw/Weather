@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="weather.svg">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="nature.mp4" type="video/mp4">
+    </video>
+    <div class="content-wrapper">
+        <header>
+            <h1>Weather App</h1>
+            <div>
+                <input type="text" id="search" placeholder="Enter city name">
+                <button id="searchBtn">Search</button>
+            </div>
+        </header>
+
+        <main>
+            <section id="current-weather">
+                <!-- Current weather content will be inserted here by JavaScript -->
+            </section>
+
+            <div id="forecast" class="section">
+                <!-- Content will be inserted here by JavaScript -->
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>Copyrights Reserved to the Creator Muhammad Gawad ©.  Powered by Open-Meteo</p>
+        <p>Made with <span class="heart">❤</span></p>
+    </footer>
+    <script src="javascript.js"></script>
+</body>
+</html>
